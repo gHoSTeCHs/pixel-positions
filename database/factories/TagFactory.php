@@ -2,14 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Employer;
-use App\Models\User;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Employer>
+ * @extends Factory<Tag>
  */
-class EmployerFactory extends Factory
+class TagFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,9 +18,7 @@ class EmployerFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->company(),
-            'logo' => fake()->imageUrl(),
-            'user_id' => User::factory(),
+            'name' => fake()->unique()->word,
         ];
     }
 }
