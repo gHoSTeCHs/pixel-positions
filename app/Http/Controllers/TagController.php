@@ -13,6 +13,6 @@ class TagController extends Controller
     public function __invoke(Tag $tag): Factory|View|Application
     {
         // TODO: Implement __invoke() method.
-        return view('results', ['jobs' => $tag->jobs]);
+        return view('results', ['jobs' => $tag->jobs->load('employer', 'tags')]);
     }
 }
